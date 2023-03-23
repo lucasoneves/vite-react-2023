@@ -1,4 +1,5 @@
 import styles from "./Pet.module.css";
+import { Link } from "react-router-dom";
 
 export default function Pet({ name, animal, breed, images, location, id }) {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
@@ -6,7 +7,7 @@ export default function Pet({ name, animal, breed, images, location, id }) {
     hero = images[0];
   }
   return (
-    <a href={`/details/${id}`} className={styles.pet}>
+    <Link to={`/details/${id}`} className={styles.pet}>
       <div className="image-container">
         <img src={hero} alt={name} className={styles.thumb} />
       </div>
@@ -16,6 +17,6 @@ export default function Pet({ name, animal, breed, images, location, id }) {
           {animal} - {breed} - {location}
         </h3>
       </div>
-    </a>
+    </Link>
   );
 }
