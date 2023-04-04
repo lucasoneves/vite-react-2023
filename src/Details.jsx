@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "./fetchPet";
 import Carousel from "./components/Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import Modal from "./Modal";
 
 export function Details() {
+  const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const results = useQuery(["details", id], fetchPet);
 
@@ -26,8 +29,17 @@ export function Details() {
         <h3>
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
         </h3>
-        <button>Adopt ${pet.name}</button>
+        <button onClick={() => setShowModal(true)}>Adopt ${pet.name}</button>
         <p>{pet.description}</p>
+        {showModal ? (
+          <Modal>
+            <div>
+              <h2>Would you like to adopt {pet.name}?</h2>
+              <button>Yes</button>
+              <button onClick={() => setShowModal(false)}>No</button>
+            </div>
+          </Modal>
+        ) : null}
       </div>
     </div>
   );
