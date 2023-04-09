@@ -1,5 +1,6 @@
 .header {
   padding: 10vh 0;
+  margin-bottom: 20px;
 }
 
 .header-itens {
@@ -8,10 +9,7 @@
   justify-content: space-between;
 }
 
-.avatar img {
-  padding: 2px;
-  background: var(--aqua);
-  border-radius: 50%;
-  width: 30px;
+.icon-menu {
   height: 30px;
+  width: 30px;
 }
