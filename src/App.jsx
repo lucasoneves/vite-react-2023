@@ -4,6 +4,7 @@ import { useState } from "react";
 import SearchParams from "./components/SearchParams";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Details from "./Details";
+import Header from "./components/Header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AdoptedPetContext from "./AdoptedPetContext";
 
@@ -23,9 +24,7 @@ function App() {
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <AdoptedPetContext.Provider value={adoptedPet}>
-            <header className="container">
-              <Link to="/">adoção de pets</Link>
-            </header>
+            <Header />
             <div className="App">
               <div className="container">
                 <Routes>

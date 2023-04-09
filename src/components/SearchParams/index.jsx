@@ -5,6 +5,7 @@ import useBreedList from "../../useBreedList";
 import AdoptedPetContext from "../../AdoptedPetContext";
 import fetchSearch from "../../fetchSearch";
 import Results from "../Results";
+import SearchBox from "../SearchBox";
 const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
 
 export default function SearchParams() {
@@ -33,42 +34,14 @@ export default function SearchParams() {
 
   return (
     <div className="search-params">
-      <form action="" onSubmit={submitHandler}>
-        {adoptedPet ? (
-          <div className="pet image-container">
-            <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
-          </div>
-        ) : null}
-        <label htmlFor="location">
-          Location
-          <input type="text" placeholder="Location" name="location" />
-        </label>
-        <label htmlFor="animal">
-          <select
-            id="animal"
-            value={animal}
-            onChange={(e) => {
-              setAnimal(e.target.value);
-            }}
-          >
-            {ANIMALS.map((animal) => (
-              <option key={animal} value={animal}>
-                {animal}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="breed">
-          <select id="breed" disabled={breeds.length === 0} name="breed">
-            {breeds.map((breed) => (
-              <option key={breed} value={breed}>
-                {breed}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button>Submit</button>
-      </form>
+      <SearchBox
+        adoptedPet={adoptedPet}
+        submitHandler={submitHandler}
+        breeds={breeds}
+        animals={ANIMALS}
+        animalValue={animal}
+        setAnimal={(e) => setAnimal(e.target.value)}
+      />
       <Results pets={pets} />
     </div>
   );

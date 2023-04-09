@@ -2,3 +2,40 @@
   max-width: 1024px;
   margin: 0 auto;
 }
+
+:root {
+  --sunflower: #FFC312;
+  --redpigment: #EA2027;
+
+  --energos: #C4E538;
+  --aqua: #006266;
+
+  --martina: #12CBC4;
+  --merchant: #0652DD;
+  --underthesea: #1B1464;
+
+  --twinkie: #e9e9e9;
+
+  --lavander: #FDA7DF;
+  --ring: #5758BB;
+
+  --barta: #ED4C67;
+  --magenta: #6F1E51;
+  
+}
+
+.main-input {
+  padding: 8px 24px;
+  min-height: 46px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: var(--twinkie);
+  font-size: 14px;
+  transition: all .2s linear;
+}
+
+.main-input:focus {
+  background-color: white;
+  border: 1px solid var(--twinkie);
+  outline: 0;
+}

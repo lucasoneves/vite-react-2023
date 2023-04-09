@@ -1,0 +1,15 @@
+.header {
+  padding: 10vh 0;
+  margin-bottom: 20px;
+}
+
+.header-itens {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-menu {
+  height: 30px;
+  width: 30px;
+}
