@@ -1,0 +1,15 @@
+.header {
+  padding: 10vh 0;
+}
+
+.header-itens {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar img {
+  padding: 2px;
+  background: #4cdd89;
+  border-radius: 50%;
+}

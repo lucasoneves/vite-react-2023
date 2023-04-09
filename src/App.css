@@ -2,3 +2,22 @@
   max-width: 1024px;
   margin: 0 auto;
 }
+
+:root {
+  --sunflower: #FFC312;
+  --redpigment: #EA2027;
+
+  --energos: #C4E538;
+  --aqua: #006266;
+
+  --martina: #12CBC4;
+  --merchant: #0652DD;
+  --underthesea: #1B1464;
+
+  --lavander: #FDA7DF;
+  --ring: #5758BB;
+
+  --barta: #ED4C67;
+  --magenta: #6F1E51;
+  
+}
