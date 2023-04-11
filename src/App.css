@@ -14,28 +14,47 @@
   --merchant: #0652DD;
   --underthesea: #1B1464;
 
-  --twinkie: #e9e9e9;
+  --twinkie: #F4F4F4;
+
+  --info: #717171;
 
   --lavander: #FDA7DF;
   --ring: #5758BB;
 
   --barta: #ED4C67;
   --magenta: #6F1E51;
+
+  --radius: 12px;
+
+  --pd-input: 13px 24px;
   
 }
 
 .main-input {
-  padding: 8px 24px;
-  min-height: 46px;
+  padding: var(--pd-input);
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius);
   background-color: var(--twinkie);
   font-size: 14px;
   transition: all .2s linear;
+  width: 100%;
 }
 
 .main-input:focus {
   background-color: white;
   border: 1px solid var(--twinkie);
   outline: 0;
+}
+
+.main-button {
+  background-color: var(--ring);
+  padding: var(--pd-input);
+  font-size: 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: #fff;
+}
+
+.main-button:hover {
+  opacity: .9;
 }

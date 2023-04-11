@@ -9,7 +9,7 @@ export default function SearchBox({
   setAnimal,
 }) {
   return (
-    <form action="" onSubmit={submitHandler}>
+    <form action="" onSubmit={submitHandler} className={styles["search-box"]}>
       {adoptedPet ? (
         <div className="pet image-container">
           <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
@@ -24,7 +24,13 @@ export default function SearchBox({
         />
       </label>
       <label htmlFor="animal">
-        <select id="animal" value={animalValue} onChange={setAnimal}>
+        <select
+          id="animal"
+          class="main-input"
+          value={animalValue}
+          onChange={setAnimal}
+        >
+          <option value="">Select one option</option>
           {animals.map((animal) => (
             <option key={animal} value={animal}>
               {animal}
@@ -33,7 +39,12 @@ export default function SearchBox({
         </select>
       </label>
       <label htmlFor="breed">
-        <select id="breed" disabled={breeds.length === 0} name="breed">
+        <select
+          id="breed"
+          class="main-input"
+          disabled={breeds.length === 0}
+          name="breed"
+        >
           {breeds.map((breed) => (
             <option key={breed} value={breed}>
               {breed}
@@ -41,7 +52,7 @@ export default function SearchBox({
           ))}
         </select>
       </label>
-      <button>Submit</button>
+      <button className="main-button">Submit</button>
     </form>
   );
 }

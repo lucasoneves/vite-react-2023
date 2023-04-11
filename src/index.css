@@ -4,3 +4,13 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
+
+button {
+  background: transparent;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
