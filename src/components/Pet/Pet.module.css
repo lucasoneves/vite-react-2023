@@ -1,15 +1,39 @@
-.pet {
-  background: linear-gradient(to bottom right, #d980fa, #1289a7);
-  padding: 20px;
+.pet-card {
+  background: #fff;
+  padding: 20px 20px 5px 20px;
   border-radius: 8px;
   display: block;
-  box-shadow: 0 0 10px #bcbcbc;
+  box-shadow: 0 0px 15px 3px #f6f6f6;
   text-align: center;
 }
 
 .thumb {
-  width: 150px;
+  width: 100%;
+  min-height: 100px;
   display: block;
-  border-radius: 50%;
+  border-radius: var(--radius);
   margin: auto;
+}
+
+.info {
+  margin: 20px auto;
+  text-align: left;
+  display: grid;
+  gap: 10px;
+}
+
+.pet-name {
+  font-size: 20px;
+}
+
+.pet-description {
+  font-size: 14px;
+  color: var(--info);
+}
+.image-container {
+  background-size: cover;
+  background-color: var(--twinkie);
+  min-height: 250px;
+  background-position: center center;
+  border-radius: var(--radius);
 }

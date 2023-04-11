@@ -30,6 +30,7 @@ export default function SearchBox({
           value={animalValue}
           onChange={setAnimal}
         >
+          <option value="">Select one option</option>
           {animals.map((animal) => (
             <option key={animal} value={animal}>
               {animal}

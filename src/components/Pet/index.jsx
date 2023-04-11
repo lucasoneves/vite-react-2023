@@ -7,13 +7,14 @@ export default function Pet({ name, animal, breed, images, location, id }) {
     hero = images[0];
   }
   return (
-    <Link to={`/details/${id}`} className={styles.pet}>
-      <div className="image-container">
-        <img src={hero} alt={name} className={styles.thumb} />
-      </div>
-      <div className="info">
-        <h2>{name}</h2>
-        <h3>
+    <Link to={`/details/${id}`} className={styles["pet-card"]}>
+      <div
+        className={styles["image-container"]}
+        style={{ backgroundImage: `url(${hero})` }}
+      ></div>
+      <div className={styles.info}>
+        <h2 className={styles["pet-name"]}>{name}</h2>
+        <h3 className={styles["pet-description"]}>
           {animal} - {breed} - {location}
         </h3>
       </div>
