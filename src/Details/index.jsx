@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import fetchPet from "./fetchPet";
-import Carousel from "./components/Carousel";
-import ErrorBoundary from "./ErrorBoundary";
-import Modal from "./Modal";
-import AdoptedPetContext from "./AdoptedPetContext";
+import fetchPet from "../fetchPet";
+import Carousel from "../components/Carousel";
+import ErrorBoundary from "../ErrorBoundary";
+import Modal from "../Modal";
+import AdoptedPetContext from "../AdoptedPetContext";
+import styles from "./Details.module.css";
 
 export function Details() {
   const [showModal, setShowModal] = useState(false);
@@ -25,9 +26,9 @@ export function Details() {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className={styles["details"]}>
       <Carousel images={pet.images} />
-      <div>
+      <div className="info">
         <h2>{pet.name}</h2>
         <h3>
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
