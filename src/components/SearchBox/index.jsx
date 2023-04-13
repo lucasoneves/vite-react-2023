@@ -26,7 +26,7 @@ export default function SearchBox({
       <label htmlFor="animal">
         <select
           id="animal"
-          class="main-input"
+          className="main-input"
           value={animalValue}
           onChange={setAnimal}
         >
@@ -41,7 +41,7 @@ export default function SearchBox({
       <label htmlFor="breed">
         <select
           id="breed"
-          class="main-input"
+          className="main-input"
           disabled={breeds.length === 0}
           name="breed"
         >

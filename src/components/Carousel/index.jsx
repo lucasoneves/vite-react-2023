@@ -1,4 +1,5 @@
 import { Component } from "react";
+import styles from "./Carousel.module.css";
 // Refatorar para Function Component
 class Carousel extends Component {
   state = {
@@ -14,10 +15,10 @@ class Carousel extends Component {
     const { images } = this.props;
 
     return (
-      <div className="carousel">
+      <div className={styles["carousel"]}>
         <img src={images[active]} alt="animal hero" />
         {/* // Corrigir para mostrar o carousel */}
-        <div className="carousel-smaller">
+        <div className={styles["carousel-smaller"]}>
           {images.map((photo, index) => (
             <img
               key={photo}
