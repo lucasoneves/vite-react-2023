@@ -1,0 +1,13 @@
+.details {
+  padding: 20px 10px;
+  box-shadow: 3px 3px 20px #f3f3f3;
+  border-radius: var(--radius);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(100%, 1fr));
+  gap: 20px;
+
+  @media (min-width: 400px) {
+    grid-template-columns: repeat(auto-fit, minMax(320px, 1fr));
+    padding: 30px;
+  }
+}

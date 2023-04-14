@@ -1,5 +1,5 @@
 import { Component } from "react";
-import styles from "./Carousel.module.css";
+import styles from "./Carousel.module.scss";
 // Refatorar para Function Component
 class Carousel extends Component {
   state = {

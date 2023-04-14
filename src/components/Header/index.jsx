@@ -1,4 +1,4 @@
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 import { HiOutlineViewGrid } from "react-icons/hi";
 import UserAvatar from "../UserAvatar";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ export default function Header() {
         <div className={styles["header-itens"]}>
           <HiOutlineViewGrid className={styles["icon-menu"]} />
           <Link to={"/"}>
-            <h2>Adoção de pets</h2>
+            <h2 className={styles["title"]}>Adoção de pets</h2>
           </Link>
           <UserAvatar />
         </div>

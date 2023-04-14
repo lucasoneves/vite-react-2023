@@ -6,7 +6,7 @@ import Carousel from "../components/Carousel";
 import ErrorBoundary from "../ErrorBoundary";
 import Modal from "../Modal";
 import AdoptedPetContext from "../AdoptedPetContext";
-import styles from "./Details.module.css";
+import styles from "./Details.module.scss";
 
 export function Details() {
   const [showModal, setShowModal] = useState(false);
