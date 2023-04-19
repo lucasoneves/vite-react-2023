@@ -33,7 +33,9 @@ export function Details() {
         <h3>
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
         </h3>
-        <button onClick={() => setShowModal(true)}>Adopt ${pet.name}</button>
+        <button className={styles["button"]} onClick={() => setShowModal(true)}>
+          Adopt ${pet.name}
+        </button>
         <p>{pet.description}</p>
         {showModal ? (
           <Modal>

@@ -1,6 +1,6 @@
 .carousel {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minMax(15rem, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
 
   @media (max-width: 400px) {
@@ -20,13 +20,12 @@
   grid-template-columns: repeat(auto-fill, minMax(70px, 1fr));
   gap: 10px;
 
-
   img {
     width: 100%;
     cursor: pointer;
 
     &:hover {
-      opacity: .9;
+      opacity: 0.9;
     }
   }
 }

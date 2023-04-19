@@ -4,6 +4,10 @@
   padding: 0 15px;
 }
 
+.container.pd-bt {
+  padding: 0 15px calc(15px * 4) 15px;
+}
+
 :root {
   --sunflower: #FFC312;
   --redpigment: #EA2027;
@@ -29,6 +33,10 @@
 
   --pd-input: 13px 24px;
   
+}
+
+p {
+  line-height: 1.5;
 }
 
 .main-input {

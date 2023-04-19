@@ -10,6 +10,10 @@ class Carousel extends Component {
     images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
+  setImage(photo) {
+    console.log(photo);
+    return this.setState({ active: photo });
+  }
   render() {
     const { active } = this.state;
     const { images } = this.props;
@@ -25,6 +29,7 @@ class Carousel extends Component {
               src={photo}
               className={index === active ? "active" : ""}
               alt="animal thumbnail"
+              onClick={() => this.setImage(index)}
             />
           ))}
         </div>
