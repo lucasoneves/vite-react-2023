@@ -1,0 +1,31 @@
+.carousel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(auto-fit, minMax(100%, 1fr));
+  }
+}
+
+.carousel {
+  img {
+    width: 100%;
+    border-radius: var(--radius);
+  }
+}
+
+.carousel-smaller {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minMax(70px, 1fr));
+  gap: 10px;
+
+  img {
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

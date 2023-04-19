@@ -26,7 +26,7 @@ function App() {
           <AdoptedPetContext.Provider value={adoptedPet}>
             <Header />
             <div className="App">
-              <div className="container">
+              <div className="container pd-bt">
                 <Routes>
                   <Route path="/details/:id" element={<Details />}></Route>
                   <Route path="/" element={<SearchParams />}></Route>

@@ -6,7 +6,7 @@ import Carousel from "../components/Carousel";
 import ErrorBoundary from "../ErrorBoundary";
 import Modal from "../Modal";
 import AdoptedPetContext from "../AdoptedPetContext";
-import styles from "./Details.module.css";
+import styles from "./Details.module.scss";
 
 export function Details() {
   const [showModal, setShowModal] = useState(false);
@@ -33,7 +33,9 @@ export function Details() {
         <h3>
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
         </h3>
-        <button onClick={() => setShowModal(true)}>Adopt ${pet.name}</button>
+        <button className={styles["button"]} onClick={() => setShowModal(true)}>
+          Adopt ${pet.name}
+        </button>
         <p>{pet.description}</p>
         {showModal ? (
           <Modal>

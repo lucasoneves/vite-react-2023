@@ -1,6 +1,11 @@
 .header {
-  padding: 10vh 0 5vh 0;
   margin-bottom: 20px;
+  padding: 15px 0;
+
+  @media (min-width: 768px) {
+
+    padding: 5vh 0 5vh 0;
+  }
 }
 
 .header-itens {
@@ -12,4 +17,12 @@
 .icon-menu {
   height: 30px;
   width: 30px;
+}
+
+.title {
+  font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
