@@ -5,6 +5,7 @@ const Modal = ({ children }) => {
   const elRef = useRef(null);
   if (!elRef.current) {
     elRef.current = document.createElement("div");
+    elRef.current.classList.add('modal-overlay')
   }
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const Modal = ({ children }) => {
     return () => modalRoot.removeChild(elRef.current);
   }, []);
 
-  return createPortal(<div>{children}</div>, elRef.current);
+  return createPortal(children, elRef.current);
 };
 
 export default Modal;

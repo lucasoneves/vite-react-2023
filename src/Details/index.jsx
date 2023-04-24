@@ -7,6 +7,7 @@ import ErrorBoundary from "../ErrorBoundary";
 import Modal from "../Modal";
 import AdoptedPetContext from "../AdoptedPetContext";
 import styles from "./Details.module.scss";
+import { Button } from "../components/Button";
 
 export function Details() {
   const [showModal, setShowModal] = useState(false);
@@ -34,22 +35,24 @@ export function Details() {
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
         </h3>
         <button className={styles["button"]} onClick={() => setShowModal(true)}>
-          Adopt ${pet.name}
+          Adopt $ {pet.name}
         </button>
         <p>{pet.description}</p>
         {showModal ? (
           <Modal>
-            <div>
+            <div className='modal-content'>
               <h2>Would you like to adopt {pet.name}?</h2>
-              <button
-                onClick={() => {
-                  setAdoptedPet(pet);
-                  navigate("/");
-                }}
-              >
-                Yes
-              </button>
-              <button onClick={() => setShowModal(false)}>No</button>
+              <div className="modal-content__actions">
+                <Button
+                  click={() => {
+                    setAdoptedPet(pet);
+                    navigate("/");
+                  }}
+                >
+                  Yes
+                </Button>
+                <Button isFlat click={() => setShowModal(false)}>No</Button>
+              </div>
             </div>
           </Modal>
         ) : null}
