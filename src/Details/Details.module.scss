@@ -13,12 +13,7 @@
   }
 
   .button {
-    background-color: var(--aqua);
-    padding: 12px 20px;
-    border-radius: var(--radius);
-    color: #fff;
-    font-weight: bold;
-    margin: var(--radius) 0;
+    margin: 20px 0;
     cursor: pointer;
 
     &:hover {
@@ -34,4 +29,8 @@
     grid-template-columns: repeat(auto-fit, minMax(320px, 1fr));
     padding: 30px;
   }
+}
+
+.info {
+  margin-top: 20px;
 }

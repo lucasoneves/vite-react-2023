@@ -6,8 +6,8 @@
   cursor: pointer;
   font-weight: bold;
   min-height: 40px;
-  width: 100%;
   color: white;
+  height: 50px;
 
   &:hover {
     opacity: 0.8;
@@ -17,5 +17,9 @@
     background: transparent;
     border: 1px solid teal;
     color: teal;
+  }
+
+  &.full-width {
+    width: 100%;
   }
 }

@@ -8,6 +8,7 @@ import Modal from "../Modal";
 import AdoptedPetContext from "../AdoptedPetContext";
 import styles from "./Details.module.scss";
 import { Button } from "../components/Button";
+import Loading from "../components/Loading";
 
 export function Details() {
   const [showModal, setShowModal] = useState(false);
@@ -18,9 +19,7 @@ export function Details() {
 
   if (results.isLoading) {
     return (
-      <div className="loading-pane">
-        <h2 className="laader">Loadding... ⚙️</h2>
-      </div>
+      <Loading />
     );
   }
 
@@ -29,15 +28,15 @@ export function Details() {
   return (
     <div className={styles["details"]}>
       <Carousel images={pet.images} />
-      <div className="info">
+      <div className={styles['info']}>
         <h2>{pet.name}</h2>
         <h3>
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
         </h3>
-        <button className={styles["button"]} onClick={() => setShowModal(true)}>
-          Adopt $ {pet.name}
-        </button>
         <p>{pet.description}</p>
+        <Button fullWidth click={() => setShowModal(true)}>
+          Adopt $ {pet.name}
+        </Button>
         {showModal ? (
           <Modal>
             <div className='modal-content'>

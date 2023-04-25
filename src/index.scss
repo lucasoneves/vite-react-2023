@@ -24,6 +24,8 @@ a {
   align-items: center;
   justify-content: center;
   z-index: 10;
+  backdrop-filter: blur(50px);
+  transition: all .3s ease-in-out;
 }
 
 .modal-content {

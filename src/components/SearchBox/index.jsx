@@ -12,14 +12,6 @@ export default function SearchBox({
   return (
     <>
       <form action="" onSubmit={submitHandler} className={styles["search-box"]}>
-        <label htmlFor="location">
-          <input
-            className="main-input"
-            type="text"
-            placeholder="Search by location"
-            name="location"
-          />
-        </label>
         <label htmlFor="animal">
           <select
             id="animal"
