@@ -1,3 +1,4 @@
+import { AdoptedPet } from "../AdoptedPet";
 import styles from "./SearchBox.module.css";
 
 export default function SearchBox({
@@ -51,9 +52,10 @@ export default function SearchBox({
         <button className="main-button">Submit</button>
       </form>
       {adoptedPet ? (
-        <div className="pet image-container">
-          <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
-        </div>
+        // <div className="pet image-container">
+        //   <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
+        // </div>
+        <AdoptedPet name={adoptedPet.name} thumb={adoptedPet.images[0]} />
       ) : null}
     </>
   );
