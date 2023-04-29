@@ -1,5 +1,5 @@
 .container {
-  max-width: 640px;
+  max-width: 1366px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -37,6 +37,7 @@
 
 p {
   line-height: 1.5;
+  margin: 20px 0;
 }
 
 .main-input {

@@ -1,11 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, Suspense, lazy } from "react";
 import { useQuery } from "@tanstack/react-query";
 import styles from "./SearchParams.module.css";
 import useBreedList from "../../useBreedList";
 import AdoptedPetContext from "../../AdoptedPetContext";
 import fetchSearch from "../../fetchSearch";
-import Results from "../Results";
 import SearchBox from "../SearchBox";
+import Loading from "../Loading";
+const Results = lazy(() => import('../Results'));
+// import Results from "../Results"; 
 const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
 
 export default function SearchParams() {
@@ -42,7 +44,9 @@ export default function SearchParams() {
         animalValue={animal}
         setAnimal={(e) => setAnimal(e.target.value)}
       />
-      <Results pets={pets} />
+      <Suspense fallback={<Loading />}>
+        <Results pets={pets} />
+      </Suspense>
     </div>
   );
 }

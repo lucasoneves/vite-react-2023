@@ -1,0 +1,30 @@
+.adopted-pet {
+  padding: 20px;
+  background: #f3f3f3;
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 460px) {
+    max-width: 300px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .button {
+    width: 100%;
+  }
+}
+
+.avatar {
+  width: 100px;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
