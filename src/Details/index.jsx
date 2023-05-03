@@ -1,14 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, lazy, Suspense } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchPet from "../fetchPet";
 import Carousel from "../components/Carousel";
 import ErrorBoundary from "../ErrorBoundary";
-import Modal from "../Modal";
 import AdoptedPetContext from "../AdoptedPetContext";
 import styles from "./Details.module.scss";
 import { Button } from "../components/Button";
 import Loading from "../components/Loading";
+
+const Modal = lazy(() => import("../Modal"));
 
 export function Details() {
   const [showModal, setShowModal] = useState(false);
@@ -18,9 +19,7 @@ export function Details() {
   const results = useQuery(["details", id], fetchPet);
 
   if (results.isLoading) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   const pet = results.data.pets[0];
@@ -28,7 +27,7 @@ export function Details() {
   return (
     <div className={styles["details"]}>
       <Carousel images={pet.images} />
-      <div className={styles['info']}>
+      <div className={styles["info"]}>
         <h2>{pet.name}</h2>
         <h3>
           {pet.animal} - {pet.breed} - ${pet.city}, ${pet.city}
@@ -38,22 +37,26 @@ export function Details() {
           Adopt $ {pet.name}
         </Button>
         {showModal ? (
-          <Modal>
-            <div className='modal-content'>
-              <h2>Would you like to adopt {pet.name}?</h2>
-              <div className="modal-content__actions">
-                <Button
-                  click={() => {
-                    setAdoptedPet(pet);
-                    navigate("/");
-                  }}
-                >
-                  Yes
-                </Button>
-                <Button isFlat click={() => setShowModal(false)}>No</Button>
+          <Suspense fallback={<Loading />}>
+            <Modal>
+              <div className="modal-content">
+                <h2>Would you like to adopt {pet.name}?</h2>
+                <div className="modal-content__actions">
+                  <Button
+                    click={() => {
+                      setAdoptedPet(pet);
+                      navigate("/");
+                    }}
+                  >
+                    Yes
+                  </Button>
+                  <Button isFlat click={() => setShowModal(false)}>
+                    No
+                  </Button>
+                </div>
               </div>
-            </div>
-          </Modal>
+            </Modal>
+          </Suspense>
         ) : null}
       </div>
     </div>
