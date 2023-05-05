@@ -1,5 +1,8 @@
+import { lazy, Suspense } from "react";
+
 import Pet from "../Pet";
 import styles from "./Results.module.css";
+import Loading from "../Loading";
 
 const Results = ({ pets }) => {
   return (
@@ -9,7 +12,8 @@ const Results = ({ pets }) => {
       ) : (
         pets.map((pet) => {
           return (
-            <Pet
+            <Suspense fallback={<Loading />}>
+              <Pet
               name={pet.name}
               breed={pet.breed}
               animal={pet.animal}
@@ -18,6 +22,7 @@ const Results = ({ pets }) => {
               key={pet.id}
               id={pet.id}
             />
+            </Suspense>
           );
         })
       )}
