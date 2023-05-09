@@ -22,7 +22,7 @@ function App() {
   const adoptedPet = useState(null);
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter> 
         <QueryClientProvider client={queryClient}>
           <Suspense fallback={<Loading />}>
             <AdoptedPetContext.Provider value={adoptedPet}>
