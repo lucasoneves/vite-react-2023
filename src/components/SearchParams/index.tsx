@@ -4,30 +4,30 @@ import useBreedList from "../../useBreedList";
 import AdoptedPetContext from "../../AdoptedPetContext";
 import fetchSearch from "../../fetchSearch";
 import SearchBox from "../SearchBox";
-import Loading from "../Loading";
+import { Animal } from "../../APIResponsesType";
 const Results = lazy(() => import('../Results'));
-const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
+const ANIMALS : Animal[] = ["bird", "dog", "cat", "rabbit", "reptile"];
 
-export default function SearchParams({loadingResults}) {
+export default function SearchParams() {
   const [requestParams, setRequestParams] = useState({
     location: "",
-    animal: "",
+    animal: "" as Animal,
     breed: "",
   });
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState("" as Animal);
   const [breeds] = useBreedList(animal);
   const [adoptedPet] = useContext(AdoptedPetContext);
 
   const results = useQuery(["search", requestParams], fetchSearch);
   const pets = results?.data?.pets ?? [];
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: any) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     const obj = {
-      animal: formData.get("animal") ?? "",
-      breed: formData.get("breed") ?? "",
-      location: formData.get("location") ?? "",
+      animal: formData.get("animal")?.toString() as Animal ?? ("" as Animal),
+      breed: formData.get("breed")?.toString() ?? "",
+      location: formData.get("location")?.toString() ?? "",
     };
     setRequestParams(obj);
   };
@@ -40,11 +40,8 @@ export default function SearchParams({loadingResults}) {
         breeds={breeds}
         animals={ANIMALS}
         animalValue={animal}
-        setAnimal={(e) => setAnimal(e.target.value)}
+        setAnimal={(e: any) => setAnimal(e.target.value as Animal)}
       />
-      <Suspense fallback={<Loading />}>
-        <Results loading={loadingResults} pets={pets} />
-      </Suspense>
     </div>
   );
 }

@@ -24,6 +24,8 @@ export function Details() {
   const [showModal, setShowModal] = useState(false);
   const results = useQuery<PetAPIResponse>(["details", id], fetchPet);
   const navigate = useNavigate();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
   if (results.isLoading) {

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Header from "./components/Header";
 import AdoptedPetContext from "./AdoptedPetContext";
 import Loading from "./components/Loading";
+import { Pet } from "./APIResponsesType";
 
 const Details = lazy(() => import("./Details"));
 const SearchParams = lazy(() => import("./components/SearchParams"));
@@ -19,7 +20,7 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const adoptedPet = useState(null);
+  const adoptedPet = useState(null as Pet | null);
   return (
     <>
       <BrowserRouter> 

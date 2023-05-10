@@ -1,8 +1,19 @@
 import styles from "./Pet.module.css";
 import { Link } from "react-router-dom";
 
-export default function Pet({ name, animal, breed, images, location, id }) {
+interface IProps {
+  name: string;
+  animal: string;
+  breed: string;
+  images: string[];
+  location: string;
+  id: number;
+}
+
+const Pet = (props: IProps) => {
+  const { name, animal, breed, images, location, id } = props;
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
+  
   if (images.length) {
     hero = images[0];
   }
@@ -21,3 +32,5 @@ export default function Pet({ name, animal, breed, images, location, id }) {
     </Link>
   );
 }
+
+export default Pet;

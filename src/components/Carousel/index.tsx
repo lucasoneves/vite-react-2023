@@ -1,7 +1,11 @@
 import { Component } from "react";
 import styles from "./Carousel.module.scss";
+
+interface IProps {
+  images: string[];
+}
 // Refatorar para Function Component
-class Carousel extends Component {
+class Carousel extends Component<IProps> {
   state = {
     active: 0,
   };
@@ -10,8 +14,7 @@ class Carousel extends Component {
     images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
-  setImage(photo) {
-    console.log(photo);
+  setImage(photo: string) {
     return this.setState({ active: photo });
   }
   render() {
