@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useContext, lazy, Suspense } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -9,20 +11,32 @@ import styles from "./Details.module.scss";
 import { Button } from "../components/Button";
 import Loading from "../components/Loading";
 
+import { PetAPIResponse } from "../APIResponsesType";
+
 const Modal = lazy(() => import("../Modal"));
 
 export function Details() {
-  const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
-  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
   const { id } = useParams();
-  const results = useQuery(["details", id], fetchPet);
+
+  if (!id) {
+    throw new Error('ID is missing');
+  }
+  const [showModal, setShowModal] = useState(false);
+  const results = useQuery<PetAPIResponse>(["details", id], fetchPet);
+  const navigate = useNavigate();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setAdoptedPet] = useContext(AdoptedPetContext);
 
   if (results.isLoading) {
     return <Loading />;
   }
 
-  const pet = results.data.pets[0];
+  const pet = results?.data?.pets[0];
+
+  if (!pet) {
+    throw new Error("no pets found")
+  }
 
   return (
     <div className={styles["details"]}>
@@ -63,10 +77,10 @@ export function Details() {
   );
 }
 
-function DetailsErrorBoundary(props) {
+function DetailsErrorBoundary() {
   return (
     <ErrorBoundary>
-      <Details {...props} />
+      <Details />
     </ErrorBoundary>
   );
 }

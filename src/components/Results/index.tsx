@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react";
-
 import Pet from "../Pet";
 import styles from "./Results.module.css";
 import Loading from "../Loading";
+import { Pet as PetType} from '../../APIResponsesType';
 
-const Results = ({ pets }) => {
+const Results = ({ pets }: {pets: PetType[]}) => {
   return (
     <div className={styles.results}>
       {!pets.length ? (
