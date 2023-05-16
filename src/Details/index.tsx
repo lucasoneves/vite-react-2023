@@ -19,7 +19,7 @@ export function Details() {
   const { id } = useParams();
 
   if (!id) {
-    throw new Error('ID is missing');
+    throw new Error('ID is missing');wvc
   }
   const [showModal, setShowModal] = useState(false);
   const results = useQuery<PetAPIResponse>(["details", id], fetchPet);

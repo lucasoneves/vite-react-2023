@@ -14,12 +14,13 @@ const Pet = (props: IProps) => {
   const { name, animal, breed, images, location, id } = props;
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
   
-  if (images.length) {
+  if (images && images.length) {
     hero = images[0];
   }
   return (
     <Link to={`/details/${id}`} className={styles["pet-card"]}>
       <div
+        data-testid="thumbnail"
         className={styles["image-container"]}
         style={{ backgroundImage: `url(${hero})` }}
       ></div>
